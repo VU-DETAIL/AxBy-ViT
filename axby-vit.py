@@ -287,10 +287,5 @@ for class_idx in range(stop_at_image):
   if img_idx % 50 == 0:
     print(img_idx)
 
-print(preds)
-print(goldens)
 print([preds[num]==goldens[num] for num in range(len(preds))].count(True) / stop_at_image)
-print(hit_info_PE[0], hit_info_PE[1], hit_info_PE[2], (hit_info_PE[0] + hit_info_PE[1]) / hit_info_PE[2])
-print(hit_info_MHA[0], hit_info_MHA[1], hit_info_MHA[2], (hit_info_MHA[0] + hit_info_MHA[1]) / hit_info_MHA[2])
-print(hit_info_MLP[0], hit_info_MLP[1], hit_info_MLP[2], (hit_info_MLP[0] + hit_info_MLP[1]) / hit_info_MLP[2])
-print(hit_info_FC[0], hit_info_FC[1], hit_info_FC[2], (hit_info_FC[0] + hit_info_FC[1]) / hit_info_FC[2])
+print((hit_info_PE[0] + hit_info_PE[1]) / hit_info_PE[2], (hit_info_MHA[0] + hit_info_MHA[1]) / hit_info_MHA[2]), (hit_info_MLP[0] + hit_info_MLP[1]) / hit_info_MLP[2], (hit_info_FC[0] + hit_info_FC[1]) / hit_info_FC[2]))
