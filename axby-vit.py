@@ -69,7 +69,7 @@ def axby_profiler(tensor, profile_cnt, operand_list):
     operand_list.append(tensor.flatten().detach()[torch.randint(0, size_, (1, )).item()].item())
   return
 
-mha_border_0, mha_border_1, mha_border_m1 = axby_config('01111001', [3, 3])
+mha_border_0, mha_border_1, mha_border_m1 = axby_config('01111001', [3, 3]) #argument: exponent (full trivial), reserved mantissa bit (semi-trivial)
 pe_border_0, pe_border_1, pe_border_m1 = axby_config('01111000', [3, 3])
 fc_border_0, fc_border_1, fc_border_m1 = axby_config('01111000', [0, 0])
 mlp_border_0, mlp_border_1, mlp_border_m1 = axby_config('01111001', [0, 0])
