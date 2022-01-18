@@ -130,8 +130,8 @@ class myMultiHeadedSelfAttention(preViT.transformer.MultiHeadedSelfAttention):
               hit_info_MHA[2] += cnt_all
 
         if 'AXBY_PROFILE' in self.mode:
-          for qkv in [self.proj_k, self.proj_q, self.proj_v]:
-            axby_profiler(qkv.weight, 10, operand_MHA) 
+          for qkv in [q, k, v]:
+            axby_profiler(qkv, 10, operand_MHA) 
 
 
         q, k, v = (split_last(x, (self.n_heads, -1)).transpose(1, 2) for x in [q, k, v])
@@ -144,15 +144,6 @@ class myMultiHeadedSelfAttention(preViT.transformer.MultiHeadedSelfAttention):
 
         h = (scores @ v).transpose(1, 2).contiguous()
         h = merge_last(h, 2)
-        if 'AXBY_MHA' in self.mode:
-          cnt_ft, cnt_st, cnt_all = axby_tensor(h, mha_border_0, mha_border_1, mha_border_m1) 
-          hit_info_MHA[0] += cnt_ft
-          hit_info_MHA[1] += cnt_st
-          hit_info_MHA[2] += cnt_all
-
-        if 'AXBY_PROFILE' in self.mode:
-          axby_profiler(h, 10, operand_MHA)
-
         self.scores = scores
         return h
 
