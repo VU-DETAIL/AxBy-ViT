@@ -16,5 +16,6 @@ AxBy-ViT: Reconfigurable Approximate Computation Bypass for Vision Transformers
 
 ## To-do
  1. Refraction.
- 2. Directly manipulating on original transformer object rather than defining custom classes.
-   - Currently using new classes inherited from the original transformer class for designing issues however this can be avoided since pytorch already provides interface.
+   - The current code repo is actually from a Jupyter notebook therefore requires quite refraction to make it more accessible.
+ 3. Directly manipulating on original transformer object rather than defining custom classes.
+   - Currently using new classes inherited from the original transformer class for legacy designing issues however this can be avoided since pytorch already provides interface.
