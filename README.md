@@ -27,5 +27,5 @@ AxBy-ViT: Reconfigurable Approximate Computation Bypass for Vision Transformers
    - Allow running the framework without a GPU.
    - Allow the configuration of AxBy-ViT via commandline argument.
  3. (Overhaul) Directly manipulating on original transformer object rather than defining custom classes.
-   - Currently using new classes inherited from the original transformer class for legacy designing issues however this can be avoided since pytorch already provides interface.
-   - This require an OOP re-implementation of AxBy-ViT 
+   - Currently using new classes inherited from the original transformer class for legacy designing issues however this can be avoided since pytorch already provides interface. This require an OOP re-implementation of AxBy-ViT 
+   - 
